@@ -16,18 +16,18 @@ class Node{
     }
 };
 
-class linkedlist{
+class Queue{
     Node * head;
     Node * tail;
     int count;
     public:
 
-    linkedlist(){
+    Queue(){
         this->head=NULL;
         this->tail=NULL;
         this->count=0;
     }
-    ~linkedlist(){
+    ~Queue(){
         Node * current = head;
         while(current!=NULL){
             Node* nextnode = current->next;
@@ -39,7 +39,7 @@ class linkedlist{
         count = 0 ;
     }
 
-    void add(int data){
+    void Enqueue(int data){
         Node * newnode = new Node(data);
         if(head == NULL && tail == NULL){
             head = tail  = newnode;
@@ -52,7 +52,19 @@ class linkedlist{
         cout<<data<<" is added"<<endl;
         count++;
     }
-    void remove(){
+    void Dequeue(){
+        if (tail == NULL) {
+        cout << "Stack is empty" << endl;
+        return;
+        }
+
+        if (head == tail) {
+        delete tail;
+        head = NULL;
+        tail = NULL;
+        count--;
+        return;
+        }
         Node * oldhead = head;
         head = head->next;
         head->prev=NULL;
@@ -132,82 +144,82 @@ class linkedlist{
     }        
 };
 
-class Queue{
-     private:
-        // Node *front;
-        // Node *rear ;
-        linkedlist * l_list  ; 
-     public:   
+// class Queue{
+//      private:
+//         // Node *front;
+//         // Node *rear ;
+//         linkedlist * l_list  ; 
+//      public:   
 
 
-    Queue()
-    {
-        this->l_list=new linkedlist;
-        //ctor
-    }
-    // Stack(Stack & s)
-    // {
-    //     cout<<"I 'm ghost"<<endl;
-    //     //ctor
-    // }
-    // Stack(int sizeArray)
-    // {
-    //     this->sizeArray=sizeArray;
-    //     this->top=-1;
-    //     this->items=new int[sizeArray];
-    //     //ctor
-    // }
-    void Enqueue(int data){
-    // 5 items push() push()   push() push() push()
-    // if(top >= sizeArray -1){//5
-    //         cout<<"Stack is FUll"<<endl;
-    //         return ; //Early Exit
-    // }
-    l_list->add(data);
-    }
-    void Dequeue(){
-        // if(top == -1){
-        //     //LOG("Stack Empty");
-        //     return 0;
-        //     //return ??
-        // }
-        // items[top]=0;
-        // //LOG("Before POP"<<top);
-        // top--;
-        // //LOG("After POP"<<top);
-        // return 1;
-        l_list->remove();
+//     Queue()
+//     {
+//         this->l_list=new linkedlist;
+//         //ctor
+//     }
+//     // Stack(Stack & s)
+//     // {
+//     //     cout<<"I 'm ghost"<<endl;
+//     //     //ctor
+//     // }
+//     // Stack(int sizeArray)
+//     // {
+//     //     this->sizeArray=sizeArray;
+//     //     this->top=-1;
+//     //     this->items=new int[sizeArray];
+//     //     //ctor
+//     // }
+//     void Enqueue(int data){
+//     // 5 items push() push()   push() push() push()
+//     // if(top >= sizeArray -1){//5
+//     //         cout<<"Stack is FUll"<<endl;
+//     //         return ; //Early Exit
+//     // }
+//     l_list->add(data);
+//     }
+//     void Dequeue(){
+//         // if(top == -1){
+//         //     //LOG("Stack Empty");
+//         //     return 0;
+//         //     //return ??
+//         // }
+//         // items[top]=0;
+//         // //LOG("Before POP"<<top);
+//         // top--;
+//         // //LOG("After POP"<<top);
+//         // return 1;
+//         l_list->remove();
 
-    }
+//     }
 
-    void display(void){
-        // for(int i=top; i>=0; i--){
-        //         cout<<items[i]<<endl;
+//     void display(void){
+//         // for(int i=top; i>=0; i--){
+//         //         cout<<items[i]<<endl;
                 
-        //     }
-        // }
-        // Stack & operator=(const Stack s){
-        // delete [] this->items;
-        // items=new int[s.sizeArray];
-        // this->sizeArray=s.sizeArray;
-        // this->top=s.top;
-        // for(int i=0; i<=top; i++){
-        //         this->items[i]=s.items[i];
-        // }
-        // return *this;
-        l_list->display();
+//         //     }
+//         // }
+//         // Stack & operator=(const Stack s){
+//         // delete [] this->items;
+//         // items=new int[s.sizeArray];
+//         // this->sizeArray=s.sizeArray;
+//         // this->top=s.top;
+//         // for(int i=0; i<=top; i++){
+//         //         this->items[i]=s.items[i];
+//         // }
+//         // return *this;
+//         l_list->display();
 
 
-    }
+//     }
     
 
-    ~Queue()
-    {
-        delete l_list;
-        l_list=nullptr;
-        //dtor
-    }
-};
+//     ~Queue()
+//     {
+//         delete l_list;
+//         l_list=nullptr;
+//         //dtor
+//     }
+// };
 
 
 
